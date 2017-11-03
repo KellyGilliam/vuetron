@@ -13,7 +13,7 @@ export default {
   },
   data() {
     return {
-      msg: "Successful Test!"
+      msg: "It works!"
     };
   },
 };

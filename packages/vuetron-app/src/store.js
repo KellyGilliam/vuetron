@@ -9,8 +9,9 @@ Vue.use(Vuex);
 export const store = new Vuex.Store({
     state: {
         clientState: {},  //state from client
-        mutations: []     //history of mutations from client
-    }
+        mutations: [],    //history of mutations from client
+        messages: ['Store works!', 'Chicken wings are delicious']
+    },
     // state: {
         // registrations: [],
         // users: [
