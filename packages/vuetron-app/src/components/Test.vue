@@ -1,20 +1,31 @@
 <template>
  <div>
    <p>{{ msg }}</p> 
+   <p>MESSAGES:</p>
    <div class="row" v-for="message in messages">
      <li>{{ message }}</li>
    </div>
+   <p>TESTS:</p>
+   <div class="row" v-for="test in tests">
+    <li>{{ test }}</li>
+  </div>
  </div> 
 </template>
 
 <script type="text/javascript">
 console.log('STORE:', this.$store);
+
 export default {
   props: ['msg'],
   computed: {
     messages () {
       return this.$store.state.messages;
-  }
+  },
+    tests() {
+    console.log('STORE STATE', this.$store.state);
+      console.log('STORE TESTS', this.$store.state.tests)
+      return this.$store.state.tests;
+    }
  }
 }
 </script>

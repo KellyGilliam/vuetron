@@ -1,4 +1,5 @@
 const electron = require('electron')
+const { server } = require('vuetron-server') 
 
 const app = electron.app
 

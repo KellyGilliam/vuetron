@@ -29,7 +29,15 @@ module.exports = function (server) {
       currentState = state;
     });
 
+    setInterval(function(){
+      let test = 'socketsTest';
+      console.log('im emitting!');
+      socket.broadcast.emit('testEmit', test);
+    }, 10000)
+
   });
+
+  
 
   return io;
 };
