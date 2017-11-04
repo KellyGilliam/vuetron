@@ -1,14 +1,11 @@
 <template>
  <div>
-   <p>{{ msg }}</p> 
-   <p>MESSAGES:</p>
-   <div class="row" v-for="message in messages">
-     <hr class="message">{{ message }}</hr>
-   </div>
-   <p>TESTS:</p>
-   <div class="row" v-for="test in tests">
-    <li class="test">{{ test }}</li>
-  </div>
+   <p id="title">VUETRON</p>
+    <div>
+      <button>Event Stream</button>
+      <button>Subscriptions</button>
+      <button>State</button>
+    </div>
  </div> 
 </template>
 
@@ -16,34 +13,15 @@
 console.log('STORE:', this.$store);
 
 export default {
-  props: ['msg'],
-  computed: {
-    messages () {
-      return this.$store.state.messages;
-  },
-    tests() {
-      // check tests.length. if the length is larger than the count, 
-      // add the remainder of the arr minus the count. 
-      // display the difference between the messages in the store and the messages displayed.
-      // ex: 'Store works!', 'Chicken wings are delicious'. <-- count is 2.
-      // ex: new message added: 
-    console.log('STORE STATE', this.$store.state);
-      console.log('STORE TESTS', this.$store.state.tests)
-      return this.$store.state.tests;
-    }
- }
+
 }
 </script>
 
 <style scoped>
-    .message {
-        background-color: lightgreen;
+    #title {
+        color: #5499AC
     }
-
-    .test {
-        background-color: lightgreen;
-        margin: 3px;
-    }
+    
 
     /* #registrations {
             box-shadow: 1px 1px 2px 1px #ccc;

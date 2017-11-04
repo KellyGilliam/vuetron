@@ -1,50 +1,40 @@
 <template>
- <div>
-   <p>{{ msg }}</p> 
-   <p>MESSAGES:</p>
-   <div class="row" v-for="message in messages">
-     <hr class="message">{{ message }}</hr>
-   </div>
-   <p>TESTS:</p>
-   <div class="row" v-for="test in tests">
-    <li class="test">{{ test }}</li>
-  </div>
+ <div id="displayWrapper">
+   <p>DISPLAY</p> 
+   <EventStream class="eventStream"></EventStream>
  </div> 
 </template>
 
 <script type="text/javascript">
 console.log('STORE:', this.$store);
 
+import EventStream from './EventStream.vue';
+
 export default {
-  props: ['msg'],
-  computed: {
-    messages () {
-      return this.$store.state.messages;
-  },
-    tests() {
-      // check tests.length. if the length is larger than the count, 
-      // add the remainder of the arr minus the count. 
-      // display the difference between the messages in the store and the messages displayed.
-      // ex: 'Store works!', 'Chicken wings are delicious'. <-- count is 2.
-      // ex: new message added: 
-    console.log('STORE STATE', this.$store.state);
-      console.log('STORE TESTS', this.$store.state.tests)
-      return this.$store.state.tests;
-    }
- }
+    components: {
+        EventStream
+    },
+//   props: ['msg'],
+//   computed: {
+//     messages () {
+//       return this.$store.state.messages;
+//   },
+//     tests() {
+//     console.log('STORE STATE', this.$store.state);
+//       console.log('STORE TESTS', this.$store.state.tests)
+//       return this.$store.state.tests;
+//     }
+//  }
 }
 </script>
 
 <style scoped>
-    .message {
-        background-color: lightgreen;
+    #displayWrapper {
+        overflow: scroll;
     }
-
-    .test {
-        background-color: lightgreen;
-        margin: 3px;
+    .eventStream {
+        height: 100%;
     }
-
     /* #registrations {
             box-shadow: 1px 1px 2px 1px #ccc;
             margin: 20px;

@@ -23,12 +23,12 @@ const VuetronVuex = function (port = 9090) {
 
       socket.on('testEmit', function(data){
         console.log('DATA', data.test);
-        store.state.tests.push(data.test);
+        store.state.tests.unshift(data.test);
+        store.state.messages.unshift(data);
         })
 
     }
   }
-
 
 export const store = new Vuex.Store({
     state: {

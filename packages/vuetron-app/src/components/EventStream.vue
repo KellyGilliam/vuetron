@@ -1,14 +1,12 @@
 <template>
  <div>
-   <p>{{ msg }}</p> 
-   <p>MESSAGES:</p>
+   <p>EVENT STREAM</p> 
    <div class="row" v-for="message in messages">
-     <hr class="message">{{ message }}</hr>
+       <h1 class="message">{{ message }}</h1>
    </div>
-   <p>TESTS:</p>
    <div class="row" v-for="test in tests">
-    <li class="test">{{ test }}</li>
-  </div>
+        <h1 class="test">{{ test }}</h1>
+    </div>
  </div> 
 </template>
 
@@ -20,14 +18,9 @@ export default {
   computed: {
     messages () {
       return this.$store.state.messages;
-  },
+    },
     tests() {
-      // check tests.length. if the length is larger than the count, 
-      // add the remainder of the arr minus the count. 
-      // display the difference between the messages in the store and the messages displayed.
-      // ex: 'Store works!', 'Chicken wings are delicious'. <-- count is 2.
-      // ex: new message added: 
-    console.log('STORE STATE', this.$store.state);
+      console.log('STORE STATE', this.$store.state);
       console.log('STORE TESTS', this.$store.state.tests)
       return this.$store.state.tests;
     }
@@ -36,15 +29,6 @@ export default {
 </script>
 
 <style scoped>
-    .message {
-        background-color: lightgreen;
-    }
-
-    .test {
-        background-color: lightgreen;
-        margin: 3px;
-    }
-
     /* #registrations {
             box-shadow: 1px 1px 2px 1px #ccc;
             margin: 20px;
@@ -53,11 +37,11 @@ export default {
             width: 300px;
             vertical-align: top;
             text-align: left;
-        }
+        } */
     
-        .summary {
+        /* .summary {
             text-align: center;
-        }
+        } */
     
         .row h4 {
             display: inline-block;
@@ -75,8 +59,18 @@ export default {
         .row span:hover {
             color: darkred;
         }
+
+        .message {
+            background-color: cyan;
+            border-radius: 10px;
+        }
+
+        .test {
+            background-color: cyan;
+            border-radius: 10px;
+        }
     
-        .date {
+        /* .date {
             display: inline-block;
             width: 38%;
             text-align: right;
