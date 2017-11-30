@@ -25,10 +25,10 @@ test('EmitEventDisplay.vue renders', t => {
   // test that the event title is the same in the Vue's tag as it is in the props.
   t.test('Event title matches the event title in the props', st => {
     	st.plan(1);
-            const eventDisplayTags = wrapper.findAll('strong');
-            console.log(eventDisplayTags);
-            eventTitleValue = eventDisplayTags.wrappers[0].vnode.data.attrs.value
-            eventTitleValueInProps = wrapper.vm.$options.propsData.event.title;
+        const eventDisplayTags = wrapper.findAll('strong');
+        console.log(eventDisplayTags);
+        eventTitleValue = eventDisplayTags.wrappers[0].vnode.data.attrs.value           
+        eventTitleValueInProps = wrapper.vm.$options.propsData.event.title;
     	st.equal(eventTitleValue,eventTitleValueInProps);         
 	})
 
