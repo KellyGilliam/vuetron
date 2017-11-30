@@ -44,28 +44,28 @@ test('APIDisplay.vue renders', t => {
       st.plan(1);
 			const vueObjectViews = wrapper.findAll('vue-object-view');
 			// set values to the value property of the Response vue-object-view
-			let requestVueObjViewValues = vueObjectViews.wrappers[0].vnode.data.attrs.value;
+			let requestVueObjViewValue = vueObjectViews.wrappers[0].vnode.data.attrs.value;
 			// locate and assign the requestViewValue 
-      let requestViewValue = '';
-      for(let prop in requestVueObjViewValues) {
-					requestViewValue = requestVueObjViewValues[prop];
+      let viewRequestObject = '';
+      for(let prop in requestVueObjViewValue) {
+					viewRequestObject = requestVueObjViewValue[prop];
 			}
 			// locate and assign the requestObj from the example propsData above
-      let eventRequestObject = wrapper.vm.$options.propsData.event.display.requestObj[0]
-      st.equal(eventRequestObject,requestViewValue);         
+      let propsRequestObject = wrapper.vm.$options.propsData.event.display.requestObj[0]      
+      st.equal(viewRequestObject,propsRequestObject);         
   })
   t.test('Response view displays the same value as the Event Response Object', st => {
     	st.plan(1);
 			const vueObjectViews = wrapper.findAll('vue-object-view');
 			// set values to the value property of the Response vue-object-view
-			let responseVueObjViewValues = vueObjectViews.wrappers[1].vnode.data.attrs.value;
+      let responseVueObjViewValue = vueObjectViews.wrappers[1].vnode.data.attrs.value;
 			// locate and assign the responseViewValue
-    	let responseViewValue = '';
-    	for(let prop in responseVueObjViewValues) {
-    	    responseViewValue = responseVueObjViewValues[prop];
+    	let viewResponseObject = '';
+    	for(let prop in responseVueObjViewValue) {
+    	    viewResponseObject = responseVueObjViewValue[prop];
 			}
 			// locate and assign the responseObj from the example propsData above
-			let eventResponseObject = wrapper.vm.$options.propsData.event.display.responseObj[0]
-    	st.equal(eventResponseObject,responseViewValue);         
+      let propsResponseObject = wrapper.vm.$options.propsData.event.display.responseObj[0]
+    	st.equal(viewResponseObject,propsResponseObject);         
 	})
 });
